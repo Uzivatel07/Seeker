@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seeker Terminal</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: black;
+            color: #00FF00;
+            text-align: center;
+            margin-top: 10%;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        p {
+            font-size: 18px;
+        }
+        input {
+            padding: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #00FF00;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Do you know?</h1>
+    <input type="text" id="sequenceInput" placeholder="Enter code...">
+    <button onclick="checkSequence()">Reveal</button>
+
+    <script>
+        // List of image URLs
+        const imageUrls = [
+            "https://example.com/image1.jpg",
+            "https://example.com/image2.jpg",
+        ];
+
+        const secretCode = "46781"; // The secret number sequence
+
+        function checkSequence() {
+            const input = document.getElementById("sequenceInput").value;
+
+            if (input === secretCode) {
+                const randomIndex = Math.floor(Math.random() * imageUrls.length);
+                const randomUrl = imageUrls[randomIndex];
+                window.location.href = randomUrl;
+            } else {
+                alert("Access denied. Invalid code.");
+            }
+        }
+    </script>
+</body>
+</html>
